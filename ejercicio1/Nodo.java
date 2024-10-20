@@ -25,6 +25,10 @@ public class Nodo {
         izq = lt;
         der = rt;
     }   
+
+    public int getValor() {
+        return valor; 
+    }
     
     public void setIzq(Nodo izq) {
         this.izq = izq;

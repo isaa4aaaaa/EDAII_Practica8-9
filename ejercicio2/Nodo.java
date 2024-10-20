@@ -25,7 +25,7 @@ public class Nodo {
         izq = lt;
         der = rt;
     }   
-    
+
     public void setIzq(Nodo izq) {
         this.izq = izq;
     }
