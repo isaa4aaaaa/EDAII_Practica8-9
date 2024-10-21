@@ -154,8 +154,10 @@ public class ArbolBin {
                 else {
                     nodoMasDerecha.setIzq(padre.izq.izq);
                     nodoMasDerecha.setDer(padre.izq.der);
-                    padre.izq = nodoMasIzquierda;
+                    padre.izq = nodoMasDerecha;
                 }  
+                if(nodoMasDerecha == nodoMasDerecha.izq) nodoMasDerecha.izq = null; 
+                if(nodoMasDerecha == nodoMasDerecha.der) nodoMasDerecha.der = null; 
 
                 //Se elimina el nodo hoja sustituto 
                 if(padreNodoMasDerecha.izq == nodoMasDerecha) padreNodoMasDerecha.izq = null; 
@@ -179,6 +181,9 @@ public class ArbolBin {
                     nodoMasIzquierda.setDer(padre.izq.der);
                     padre.izq = nodoMasIzquierda;
                 }
+
+                if(nodoMasIzquierda == nodoMasIzquierda.izq) nodoMasIzquierda.izq = null; 
+                if(nodoMasIzquierda == nodoMasIzquierda.der) nodoMasIzquierda.der = null; 
 
                 //Se elimina la hoja sustituta 
                 if(padreNodoMasIzquierda.izq == nodoMasIzquierda) padreNodoMasIzquierda.izq = null;
