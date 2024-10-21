@@ -1,7 +1,6 @@
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,73 +54,44 @@ public class ArbolBin {
 	}
     }
 
-    
-    /*
-    public void eliminar(Nodo nodo){
-        Queue<Nodo> lista = new LinkedList();
-        if(nodo == this.root){
-            lista = breadthFrist();
-            int ind = lista.lastIndexOf(Nodo);
-            Nodo temp = lista.get(ind);
-            Nodo padre = lista.get(ind-ind/2);
-            nodo = temp;
-            padre.izq = null;
-            padre.der = null;
-        } else if(nodo.izq == null && nodo.der == null){
-
-        }else if(nodo.izq != null || nodo.der != null){
-
-        }
-    }*/
-
     public void preFija(Nodo r){
-        boolean visitado = false;
-        if(r.izq != null){
-            if(!visitado){
-                visit(r);
-                visitado = true;
+        if(r!=null){
+            visit(r);
+            if(r.izq!=null){
+                preFija(r.izq);
             }
-
-            preFija(r.izq);
-        }
-        if(r.der != null){
-            if(!visitado){
-                visit(r);
-                visitado = true;
-            }
-
-            preFija(r.der);
-        }
-        if(r.izq == null && r.der == null){
-            if(!visitado){
-                visit(r);
-                visitado = true;
+            if(r.der!=null){
+                preFija(r.der);
             }
         }
     }
 
+
     public void inFija(Nodo r){
-        Queue<Nodo> pila = new LinkedList();
-
-        pila.add(r);
-
-        while(!pila.isEmpty()){
-            if(r.izq != null){
+        if(r!=null){
+            if(r.izq!=null){
                 inFija(r.izq);
-            }else if(r.izq == null && r.der == null){
-                Nodo v = (Nodo)pila.poll();
-                visit(v);
-            }else if(r.der != null){
+            }
+            visit(r);
+            if(r.der!=null){
                 inFija(r.der);
             }
         }
+
     }
 
-    public void posFija(){
-        
-
-        
+     public void posFija(Nodo r){
+        if(r!=null){
+            if(r.izq!=null){
+                posFija(r.izq);
+            }
+            if(r.der!=null){
+                posFija(r.der);
+            }
+            visit(r);
+        }
     }
+    
 
 
 }

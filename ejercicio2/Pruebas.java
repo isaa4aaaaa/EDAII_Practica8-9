@@ -46,8 +46,13 @@ public class Pruebas {
         arbol.preFija(arbol.root);
         System.out.println("");
 
+        
         System.out.println("Inorden: ");
-        arbol.preFija(arbol.root);
+        arbol.inFija(arbol.root);
+        System.out.println("");
+
+        System.out.println("Postorden: ");
+        arbol.posFija(arbol.root);
         System.out.println("");
 
     }
