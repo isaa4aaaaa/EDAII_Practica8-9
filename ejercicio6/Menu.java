@@ -4,15 +4,17 @@ public class Menu {
 
     Scanner s = new Scanner(System.in);
 
+    
+
     public void listarMenu(){
 
         int op = 0;
-
         do{
             System.out.println("Seleccione el árbol con el que desea trabajar: ");
             System.out.println("1) Árbol Binario");
             System.out.println("2) Árbol Binario de Búsqueda");
-            System.out.println("3) Salir");
+            System.out.println("3) Árbol B");
+            System.out.println("4) Salir");
             op = s.nextInt();
 
             switch(op){
@@ -23,13 +25,17 @@ public class Menu {
                     menuArbolBusq();
                     break;
                 case 3:
+                    menuArbolB();
+                    break;
+                case 4:
                     System.out.println("Hasta luego!");
                     break;
                 default:
                     System.out.println("Ingresa una opción válida...");
                     break;
             }
-        }while(op!=3);
+        }while(op!=4);
+        s.close();
 
     }
 
@@ -206,5 +212,59 @@ public class Menu {
             }
         }while(op3!=6);
     }
+
+    public void menuArbolB(){
+        BTree arbolB = new BTree(0);
+        int op4 = 0;
+       
+        do{
+            System.out.println("\t--------Árbol B--------");
+            System.out.println("Seleccione una opción: ");
+            System.out.println("1) Crear Árbol");
+            System.out.println("2) Agregar dato");
+            System.out.println("3) Buscar dato");
+            System.out.println("4) Imprimir Árbol");
+            System.out.println("5) Salir");
+
+            op4 = s.nextInt();
+            switch(op4){
+            case 1:
+                    
+                    System.out.println("Ingresa el valor inicial: ");
+                    int val = s.nextInt();
+                    arbolB = new BTree(val);
+                    break;
+            case 2:
+                    System.out.println("Ingresa el número de valores que se desea agregar: ");
+                    int num = s.nextInt();
+                    for(int i = 0; i < num; i++){
+                        System.out.println("Ingresa el valor a agregar: ");
+                        val = s.nextInt();
+                        arbolB.add(val);
+                        break; 
+                    }
+            case 3:
+                    System.out.println("Ingresa el valor a buscar: ");
+                    val = s.nextInt();
+                    if(arbolB.find(val)){
+                        System.out.println("El valor "+ val+" se encuentra en el árbol.");
+                    }else{
+                        System.out.println("El valor \"+ val+\" NO se encuentra en el árbol.");
+                    }
+                    break;
+            case 4:
+                    arbolB.mostrarArbol();
+                    break;
+            case 5:
+                    System.out.println("Saliendo...");
+                    break;
+            default:
+                    System.out.println("Ingresa una opción válida...");
+                    break;
+            }
+        }while(op4!=5);
+    }
+
+    
 
 }
