@@ -69,6 +69,9 @@ public class Pruebas {
         System.out.println("BFS en el segundo árbol de prueba después de eliminar la raíz");
         arbol2.eliminarNodo(ROOT);
         arbol2.breadthFrist();
+
+        System.out.println("Búsqueda del valor 85 en el árbol: " + arbol2.search(85));
+        System.out.println("Búsqueda del valor 23 en el árbol: " + arbol2.search(23));
         
 
     }
